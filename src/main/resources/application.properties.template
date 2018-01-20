@@ -1,0 +1,4 @@
+spring.social.twitter.appId=<appId from app.twitter.com>
+spring.social.twitter.appSecret=<appSecret from app.twitter.com>
+
+debug=true
