@@ -10,19 +10,10 @@ buildscript {
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'org.springframework.boot'
-apply plugin: 'war'
 
 jar {
     baseName = 'fitumi'
     version =  '0.1.0'
-}
-
-war {
-    from 'src/main/resources' // adds a file-set to the root of the archive
-    //webInf { from 'src/additionalWebInf' } // adds a file-set to the WEB-INF dir.
-    //classpath fileTree('additionalLibs') // adds a file-set to the WEB-INF/lib dir.
-    //classpath configurations.moreLibs // adds a configuration to the WEB-INF/lib dir.
-    //webXml = file('src/someWeb.xml') // copies a file to WEB-INF/web.xml
 }
 
 repositories {
@@ -35,8 +26,19 @@ targetCompatibility = 1.8
 
 dependencies {
 	compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+	//compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.social:spring-social-twitter")
     compile("com.fasterxml.jackson.core:jackson-databind")
-    compile("org.twitter4j:twitter4j-core:4.0.2")
+    //compile 'org.springframework.cloud:spring-cloud-spring-service-connector:2.0.1.RELEASE'
+    //compile 'org.springframework.cloud:spring-cloud-cloudfoundry-connector:2.0.1.RELEASE'
+    
+    compile 'org.springframework.cloud:spring-cloud-spring-service-connector:1.2.5.RELEASE'
+    // If you intend to deploy the app on Cloud Foundry, add the following
+    compile 'org.springframework.cloud:spring-cloud-cloudfoundry-connector:1.2.5.RELEASE'
+    
+    //compile 'org.springframework.data:spring-data-commons:2.0.2.RELEASE'
+    //compile 'org.springframework.data:spring-data-mongodb:2.0.2.RELEASE'
+    compile 'org.springframework.data:spring-data-mongodb:1.10.9.RELEASE'
     testCompile("junit:junit")
+    
 }
