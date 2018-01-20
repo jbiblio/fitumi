@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Hello FC Bayern München Fan</title>
+</head>
+<body>
+	<h3>
+		Hello, <span th:text="${user.twitterName}">Some User</span>!
+	</h3>
+	<p>
+		Currently, you follow <span th:text="${user.numberOfTwitterFollowing}">0</span>
+		friends and have <span th:text="${user.numberOfTwitterFollowers}">0</span>
+		followers, which is great!
+	</p>
+	<p>Have fun!</p>
+</body>
+</html>
