@@ -2,6 +2,7 @@ package com.acme.fitumi.controller;
 
 import javax.inject.Inject;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.api.TwitterProfile;
@@ -14,6 +15,7 @@ import com.acme.fitumi.model.User;
 import com.acme.fitumi.repository.UserRepository;
 
 @Controller
+@Scope("session")
 @RequestMapping("/register")
 public class RegisterController {
 

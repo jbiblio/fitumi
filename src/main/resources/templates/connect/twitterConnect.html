@@ -1,15 +1,35 @@
 <html>
-	<head>
-		<title>Hello Twitter</title>
-	</head>
-	<body>
-		<h3>Connect to Twitter</h3>
-		<span th:if="${social_provider_error}">Provider error (maybe you need to configure the app id and secret?)</span>
-		<form action="/connect/twitter" method="POST">
-			<div class="formInfo">
-				<p>You aren't connected to Twitter yet. Click the button to connect this application with your Twitter account.</p>
-			</div>
-			<p><button type="submit">Connect to Twitter</button></p>
-		</form>
-	</body>
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous" />
+
+<title>Hello Twitter</title>
+</head>
+
+<body style="background-color: #000000">
+
+	<div class="promo-block" align="center"
+		style="width: 23%; height: 70%; margin: 7% auto; background-image: url(/Wallpaper.jpg); background-size: 960px 540px; background-position: left;">
+
+		<div class="container" align="center">
+			<br /> <br /> <br /> <img class="full-width img-responsive"
+				src="/logo.png" alt="Image" style="width: 100px; height: 100px;"/>
+			<br /> <br /> <br />
+			<h3 class="promo-block-title">Bayernassador</h3>
+			<br /> <span th:if="${social_provider_error}">Provider error
+				(maybe you need to configure the app id and secret?)</span> <br /> <br />
+
+			<form action="/connect/twitter" method="POST">
+				<div class="formInfo"></div>
+				<br />
+				<p>
+					<button type="submit" class="btn btn-danger">SignUp with
+						Twitter</button>
+				</p>
+			</form>
+		</div>
+	</div>
+</body>
 </html>
