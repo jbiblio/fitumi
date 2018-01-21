@@ -9,7 +9,7 @@ import org.springframework.social.twitter.api.TwitterProfile;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.acme.fitumi.model.User;
 import com.acme.fitumi.repository.UserRepository;
@@ -32,8 +32,10 @@ public class RegisterController {
 		this.ur = userRepo;
 	}
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String helloTwitter(Model model) {
+	@RequestMapping
+	public String register(Model model, @RequestParam(name = "homeTown", required = false) String homeTown,
+			@RequestParam(name = "gender", required = false) String gender,
+			@RequestParam(name = "matchFrequency", required = false) String matchFrequency) {
 		if (connectionRepository.findPrimaryConnection(Twitter.class) == null) {
 			return "redirect:/connect/twitter";
 		}
@@ -56,10 +58,16 @@ public class RegisterController {
 		user.setTwitterScreenName(twitterScreenName);
 		user.setNumberOfTwitterFollowers(Long.valueOf(followersCount));
 		user.setNumberOfTwitterFollowing(Long.valueOf(friendsCount));
+		user.setGender(gender);
+		user.setMatchFrequency(matchFrequency);
+		user.setHomeTown(homeTown);
 
 		ur.save(user);
 
+		long count = ur.count();
+
 		model.addAttribute("user", user);
+		model.addAttribute("registeredUsers", count);
 		return "registered";
 	}
 

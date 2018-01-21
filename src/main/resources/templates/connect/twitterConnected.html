@@ -21,49 +21,56 @@
 			align="center">
 			<br />
 			<h3 class="promo-block-title">About you ...</h3>
-			<div align="left">
-				<h5>1. Hometown</h5>
-				<input
-					type="text"
-					id="myText"
-					value="" />
-				<br />
-				<h5>2. Gender</h5>
-				<input
-					type="radio"
-					id="radioButtonM"
-					value="MALE"/>
-				<label for="radioButtonM">Male</label>
-				<br />
-				<input
-					type="radio"
-					id="radioButtonF"
-					value="FEMALE"/>
-				<label for="radioButtonF">Female</label>
-				<br />
-				<h5>3. How often do you watch FC Bayern games?</h5>
-				<input
-					type="radio"
-					id="1"
-					value="Every match"/>
-				<label for="1">Every match</label>
-				<br />
-				<input
-					type="radio"
-					id="2"
-					value="Few matches a month"/>
-				<label for="2">Few matches a month</label>
-				<br />
-				<input
-					type="radio"
-					id="3"
-					value="Very rarely"/>
-				<label for="3">Very rarely</label>
-			</div>
-			<br />
 			<form
 				action="/register"
-				method="GET">
+				method="POST">
+				<div align="left">
+					<h5>1. Hometown</h5>
+					<input
+						type="text"
+						id="myText"
+						value=""
+						name="homeTown" />
+					<br />
+					<h5>2. Gender</h5>
+					<input
+						type="radio"
+						id="radioButtonM"
+						value="MALE"
+						name="gender" />
+					<label for="radioButtonM">Male</label>
+					<br />
+					<input
+						type="radio"
+						id="radioButtonF"
+						value="FEMALE"
+						name="gender" />
+					<label for="radioButtonF">Female</label>
+					<br />
+					<h5>3. How often do you watch FC Bayern games?</h5>
+					<input
+						type="radio"
+						id="1"
+						value="Every match"
+						name="matchFrequency" />
+					<label for="1">Every match</label>
+					<br />
+					<input
+						type="radio"
+						id="2"
+						value="Few matches a month"
+						name="matchFrequency" />
+					<label for="2">Few matches a month</label>
+					<br />
+					<input
+						type="radio"
+						id="3"
+						value="Very rarely"
+						name="matchFrequency" />
+					<label for="3">Very rarely</label>
+				</div>
+				<br />
+
 				<div class="formInfo">
 					<p>
 						<button

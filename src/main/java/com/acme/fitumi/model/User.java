@@ -4,15 +4,18 @@ import org.springframework.data.annotation.Id;
 
 public class User {
 
-	private String id;
+	private String gender;
 
-	private long twitterUserID;
-	private String twitterName;
-	private String twitterScreenName;
+	private String homeTown;
+	private String id;
 	private long lastPostedTweetId;
+	private String matchFrequency;
 	private Long numberOfTwitterFollowers;
 	private Long numberOfTwitterFollowing;
 	private String twitterAccessToken;
+	private String twitterName;
+	private String twitterScreenName;
+	private long twitterUserID;
 
 	public User() {
 	}
@@ -25,9 +28,57 @@ public class User {
 		this.twitterAccessToken = twitterAccessToken;
 	}
 
+	public String getGender() {
+		return gender;
+	}
+
+	public String getHomeTown() {
+		return homeTown;
+	}
+
 	@Id
 	public String getId() {
 		return id;
+	}
+
+	public long getLastPostedTweetId() {
+		return lastPostedTweetId;
+	}
+
+	public String getMatchFrequency() {
+		return matchFrequency;
+	}
+
+	public Long getNumberOfTwitterFollowers() {
+		return numberOfTwitterFollowers;
+	}
+
+	public Long getNumberOfTwitterFollowing() {
+		return numberOfTwitterFollowing;
+	}
+
+	public String getTwitterAccessToken() {
+		return twitterAccessToken;
+	}
+
+	public String getTwitterName() {
+		return twitterName;
+	}
+
+	public String getTwitterScreenName() {
+		return twitterScreenName;
+	}
+
+	public long getTwitterUserID() {
+		return twitterUserID;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public void setHomeTown(String homeTown) {
+		this.homeTown = homeTown;
 	}
 
 	@SuppressWarnings("unused")
@@ -35,61 +86,37 @@ public class User {
 		this.id = id;
 	}
 
-	public long getTwitterUserID() {
-		return twitterUserID;
-	}
-
-	@SuppressWarnings("unused")
-	private void setTwitterUserID(long twitterUserID) {
-		this.twitterUserID = twitterUserID;
-	}
-
-	public String getTwitterName() {
-		return twitterName;
-	}
-
-	public void setTwitterName(String twitterName) {
-		this.twitterName = twitterName;
-	}
-
-	public String getTwitterScreenName() {
-		return twitterScreenName;
-	}
-
-	public void setTwitterScreenName(String twitterScreenName) {
-		this.twitterScreenName = twitterScreenName;
-	}
-
-	public long getLastPostedTweetId() {
-		return lastPostedTweetId;
-	}
-
 	public void setLastPostedTweetId(long lastPostedTweetId) {
 		this.lastPostedTweetId = lastPostedTweetId;
 	}
 
-	public Long getNumberOfTwitterFollowers() {
-		return numberOfTwitterFollowers;
+	public void setMatchFrequency(String matchFrequency) {
+		this.matchFrequency = matchFrequency;
 	}
 
 	public void setNumberOfTwitterFollowers(Long numberOfFollowers) {
 		this.numberOfTwitterFollowers = numberOfFollowers;
 	}
 
-	public Long getNumberOfTwitterFollowing() {
-		return numberOfTwitterFollowing;
-	}
-
 	public void setNumberOfTwitterFollowing(Long numberOfFollowing) {
 		this.numberOfTwitterFollowing = numberOfFollowing;
 	}
 
-	public String getTwitterAccessToken() {
-		return twitterAccessToken;
-	}
-
 	public void setTwitterAccessToken(String twitterAccessToken) {
 		this.twitterAccessToken = twitterAccessToken;
+	}
+
+	public void setTwitterName(String twitterName) {
+		this.twitterName = twitterName;
+	}
+
+	public void setTwitterScreenName(String twitterScreenName) {
+		this.twitterScreenName = twitterScreenName;
+	}
+
+	@SuppressWarnings("unused")
+	private void setTwitterUserID(long twitterUserID) {
+		this.twitterUserID = twitterUserID;
 	}
 
 }
