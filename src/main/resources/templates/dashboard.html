@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Hello FC Bayern München Fan</title>
+</head>
+<body>
+	<h3>
+		Hello, <span th:text="${user.twitterName}">Some User</span> !
+	</h3>
+	<p>
+	<table>
+		<tr>
+			<td>FCB Content Score</td>
+			<td><span th:text="${user.totalRating}">0</span></td>
+		</tr>
+		<tr>
+			<td>Tweets about FC Bayern</td>
+			<td><span th:text="${user.numberOfClubRelatedTweets}">0</span></td>
+		</tr>
+		<tr>
+			<td>Followers</td>
+			<td><span th:text="${user.numberOfTwitterFollowers}">0</span></td>
+		</tr>
+	</table>
+	You've reached a FCB Content Score !
+	</p>
+</body>
+</html>

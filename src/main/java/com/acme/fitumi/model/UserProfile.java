@@ -19,6 +19,14 @@ public class UserProfile {
 		this.totalRating = totalRating;
 	}
 
+	public UserProfile(long twitterUserID, long lastPostedTweetId, int totalRating, List<TweetRating> tweetRatings) {
+		super();
+		this.twitterUserID = twitterUserID;
+		this.lastPostedTweetId = lastPostedTweetId;
+		this.totalRating = totalRating;
+		this.tweetRatings = tweetRatings;
+	}
+
 	public long getTwitterUserID() {
 		return twitterUserID;
 	}
