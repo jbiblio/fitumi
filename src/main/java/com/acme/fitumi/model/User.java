@@ -1,5 +1,6 @@
 package com.acme.fitumi.model;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
@@ -15,12 +16,14 @@ public class User {
 	private int numberOfClubRelatedTweets;
 	private int numberOfTwitterFollowers;
 	private int numberOfTwitterFollowing;
+	private long totalRating;
 	private List<TweetRating> tweetRatings;
 	private String twitterAccessToken;
 	private String twitterName;
 	private String twitterScreenName;
 	private String twitterSecret;
 	private long twitterUserID;
+	private Date lastUpdate;
 
 	public User() {
 	}
@@ -66,6 +69,10 @@ public class User {
 
 	public int getNumberOfTwitterFollowing() {
 		return numberOfTwitterFollowing;
+	}
+
+	public long getTotalRating() {
+		return totalRating;
 	}
 
 	public List<TweetRating> getTweetRatings() {
@@ -125,6 +132,10 @@ public class User {
 		this.numberOfTwitterFollowing = numberOfFollowing;
 	}
 
+	public void setTotalRating(long totalRating) {
+		this.totalRating = totalRating;
+	}
+
 	public void setTweetRatings(List<TweetRating> tweetRatings) {
 		this.tweetRatings = tweetRatings;
 	}
@@ -148,6 +159,14 @@ public class User {
 	@SuppressWarnings("unused")
 	private void setTwitterUserID(long twitterUserID) {
 		this.twitterUserID = twitterUserID;
+	}
+
+	public Date getLastUpdate() {
+		return lastUpdate;
+	}
+
+	public void setLastUpdate(Date lastUpdate) {
+		this.lastUpdate = lastUpdate;
 	}
 
 }
