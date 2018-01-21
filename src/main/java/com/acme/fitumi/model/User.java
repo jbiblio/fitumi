@@ -1,5 +1,7 @@
 package com.acme.fitumi.model;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 
 public class User {
@@ -10,22 +12,27 @@ public class User {
 	private String id;
 	private long lastPostedTweetId;
 	private String matchFrequency;
+	private long numberOfClubRelatedTweets;
 	private Long numberOfTwitterFollowers;
 	private Long numberOfTwitterFollowing;
+	private List<TweetRating> tweetRatings;
 	private String twitterAccessToken;
 	private String twitterName;
 	private String twitterScreenName;
+	private String twitterSecret;
 	private long twitterUserID;
 
 	public User() {
 	}
 
-	public User(long twitterUserID, String twitterName, String twitterScreenName, String twitterAccessToken) {
+	public User(long twitterUserID, String twitterName, String twitterScreenName, String twitterAccessToken,
+			String twitterSecret) {
 		super();
 		this.twitterUserID = twitterUserID;
 		this.twitterName = twitterName;
 		this.twitterScreenName = twitterScreenName;
 		this.twitterAccessToken = twitterAccessToken;
+		this.twitterSecret = twitterSecret;
 	}
 
 	public String getGender() {
@@ -49,12 +56,20 @@ public class User {
 		return matchFrequency;
 	}
 
+	public long getNumberOfClubRelatedTweets() {
+		return numberOfClubRelatedTweets;
+	}
+
 	public Long getNumberOfTwitterFollowers() {
 		return numberOfTwitterFollowers;
 	}
 
 	public Long getNumberOfTwitterFollowing() {
 		return numberOfTwitterFollowing;
+	}
+
+	public List<TweetRating> getTweetRatings() {
+		return tweetRatings;
 	}
 
 	public String getTwitterAccessToken() {
@@ -67,6 +82,10 @@ public class User {
 
 	public String getTwitterScreenName() {
 		return twitterScreenName;
+	}
+
+	public String getTwitterSecret() {
+		return twitterSecret;
 	}
 
 	public long getTwitterUserID() {
@@ -94,12 +113,20 @@ public class User {
 		this.matchFrequency = matchFrequency;
 	}
 
+	public void setNumberOfClubRelatedTweets(long numberOfClubRelatedTweets) {
+		this.numberOfClubRelatedTweets = numberOfClubRelatedTweets;
+	}
+
 	public void setNumberOfTwitterFollowers(Long numberOfFollowers) {
 		this.numberOfTwitterFollowers = numberOfFollowers;
 	}
 
 	public void setNumberOfTwitterFollowing(Long numberOfFollowing) {
 		this.numberOfTwitterFollowing = numberOfFollowing;
+	}
+
+	public void setTweetRatings(List<TweetRating> tweetRatings) {
+		this.tweetRatings = tweetRatings;
 	}
 
 	public void setTwitterAccessToken(String twitterAccessToken) {
@@ -112,6 +139,10 @@ public class User {
 
 	public void setTwitterScreenName(String twitterScreenName) {
 		this.twitterScreenName = twitterScreenName;
+	}
+
+	public void setTwitterSecret(String twitterSecret) {
+		this.twitterSecret = twitterSecret;
 	}
 
 	@SuppressWarnings("unused")

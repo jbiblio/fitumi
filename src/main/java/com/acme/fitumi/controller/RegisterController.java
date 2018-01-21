@@ -1,8 +1,11 @@
 package com.acme.fitumi.controller;
 
+import java.util.Arrays;
+
 import javax.inject.Inject;
 
 import org.springframework.context.annotation.Scope;
+import org.springframework.social.connect.ConnectionData;
 import org.springframework.social.connect.ConnectionRepository;
 import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.api.TwitterProfile;
@@ -11,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.acme.fitumi.model.TweetRating;
 import com.acme.fitumi.model.User;
 import com.acme.fitumi.repository.UserRepository;
 
@@ -47,13 +51,16 @@ public class RegisterController {
 		int friendsCount = userProfile.getFriendsCount();
 		String twitterName = userProfile.getName();
 		String twitterScreenName = userProfile.getScreenName();
-		String twitterAccessToken = connectionRepository.findPrimaryConnection(Twitter.class).createData()
-				.getAccessToken();
+		ConnectionData authenticationData = connectionRepository.findPrimaryConnection(Twitter.class).createData();
+		String twitterAccessToken = authenticationData.getAccessToken();
+		String twitterSecret = authenticationData.getSecret();
 
 		User user = ur.findByTwitterUserID(twitterID);
 		if (user == null) {
-			user = new User(twitterID, twitterName, twitterScreenName, twitterAccessToken);
+			user = new User(twitterID, twitterName, twitterScreenName, twitterAccessToken, twitterSecret);
 		}
+		user.setTwitterAccessToken(twitterAccessToken);
+		user.setTwitterSecret(twitterSecret);
 		user.setTwitterName(twitterName);
 		user.setTwitterScreenName(twitterScreenName);
 		user.setNumberOfTwitterFollowers(Long.valueOf(followersCount));
@@ -61,6 +68,10 @@ public class RegisterController {
 		user.setGender(gender);
 		user.setMatchFrequency(matchFrequency);
 		user.setHomeTown(homeTown);
+
+		user.setNumberOfClubRelatedTweets(5);
+		user.setTweetRatings(Arrays.asList(new TweetRating(12132, "What a goal!", 500, "very good content"),
+				new TweetRating(1231245, "Re: What a goal", 50, "Simple retweet")));
 
 		ur.save(user);
 
