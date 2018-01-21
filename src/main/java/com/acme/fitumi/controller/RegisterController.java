@@ -1,7 +1,5 @@
 package com.acme.fitumi.controller;
 
-import java.util.Arrays;
-
 import javax.inject.Inject;
 
 import org.springframework.context.annotation.Scope;
@@ -14,7 +12,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.acme.fitumi.model.TweetRating;
 import com.acme.fitumi.model.User;
 import com.acme.fitumi.repository.UserRepository;
 
@@ -63,15 +60,11 @@ public class RegisterController {
 		user.setTwitterSecret(twitterSecret);
 		user.setTwitterName(twitterName);
 		user.setTwitterScreenName(twitterScreenName);
-		user.setNumberOfTwitterFollowers(Long.valueOf(followersCount));
-		user.setNumberOfTwitterFollowing(Long.valueOf(friendsCount));
+		user.setNumberOfTwitterFollowers(followersCount);
+		user.setNumberOfTwitterFollowing(friendsCount);
 		user.setGender(gender);
 		user.setMatchFrequency(matchFrequency);
 		user.setHomeTown(homeTown);
-
-		user.setNumberOfClubRelatedTweets(5);
-		user.setTweetRatings(Arrays.asList(new TweetRating(12132, "What a goal!", 500, "very good content"),
-				new TweetRating(1231245, "Re: What a goal", 50, "Simple retweet")));
 
 		ur.save(user);
 

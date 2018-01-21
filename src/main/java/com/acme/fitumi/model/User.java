@@ -12,9 +12,9 @@ public class User {
 	private String id;
 	private long lastPostedTweetId;
 	private String matchFrequency;
-	private long numberOfClubRelatedTweets;
-	private Long numberOfTwitterFollowers;
-	private Long numberOfTwitterFollowing;
+	private int numberOfClubRelatedTweets;
+	private int numberOfTwitterFollowers;
+	private int numberOfTwitterFollowing;
 	private List<TweetRating> tweetRatings;
 	private String twitterAccessToken;
 	private String twitterName;
@@ -56,15 +56,15 @@ public class User {
 		return matchFrequency;
 	}
 
-	public long getNumberOfClubRelatedTweets() {
+	public int getNumberOfClubRelatedTweets() {
 		return numberOfClubRelatedTweets;
 	}
 
-	public Long getNumberOfTwitterFollowers() {
+	public int getNumberOfTwitterFollowers() {
 		return numberOfTwitterFollowers;
 	}
 
-	public Long getNumberOfTwitterFollowing() {
+	public int getNumberOfTwitterFollowing() {
 		return numberOfTwitterFollowing;
 	}
 
@@ -113,15 +113,15 @@ public class User {
 		this.matchFrequency = matchFrequency;
 	}
 
-	public void setNumberOfClubRelatedTweets(long numberOfClubRelatedTweets) {
+	public void setNumberOfClubRelatedTweets(int numberOfClubRelatedTweets) {
 		this.numberOfClubRelatedTweets = numberOfClubRelatedTweets;
 	}
 
-	public void setNumberOfTwitterFollowers(Long numberOfFollowers) {
+	public void setNumberOfTwitterFollowers(int numberOfFollowers) {
 		this.numberOfTwitterFollowers = numberOfFollowers;
 	}
 
-	public void setNumberOfTwitterFollowing(Long numberOfFollowing) {
+	public void setNumberOfTwitterFollowing(int numberOfFollowing) {
 		this.numberOfTwitterFollowing = numberOfFollowing;
 	}
 

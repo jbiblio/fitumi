@@ -3,26 +3,27 @@ package com.acme.fitumi.model;
 import org.springframework.data.annotation.Id;
 
 public class TweetRating {
+	private String id;
+
+	private int rating;
+
+	private String ratingMessage;
+
+	private String text;
+
+	private long tweetID;
+
 	public TweetRating() {
 		super();
 	}
 
-	public TweetRating(long tweetID, String text, long rating, String ratingMessage) {
+	public TweetRating(long tweetID, String text, int rating, String ratingMessage) {
 		super();
 		this.rating = rating;
 		this.ratingMessage = ratingMessage;
 		this.text = text;
 		this.tweetID = tweetID;
 	}
-
-	private String id;
-
-	private long rating;
-
-	private String ratingMessage;
-
-	private String text;
-	private long tweetID;
 
 	@Id
 	public String getId() {
@@ -49,7 +50,7 @@ public class TweetRating {
 		this.id = id;
 	}
 
-	public void setRating(long rating) {
+	public void setRating(int rating) {
 		this.rating = rating;
 	}
 
