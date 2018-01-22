@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta
+	http-equiv="X-UA-Compatible"
+	content="IE=edge" />
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1" />
+<link
+	rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<title>Interests</title>
+
+<style>
+body {
+	background-color: white;
+	font-family: "ff-tisa-web-pro", sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.45;
+	color: #333;
+	padding: 1em;
+}
+
+article {
+	-webkit-column-count: 2;
+	-moz-column-count: 2;
+	column-count: 2;
+}
+
+p {
+	margin-bottom: 1.3em;
+}
+
+h1, h2, h3, h4 {
+	margin: 1.414em 0 0.5em;
+	font-weight: 700;
+	line-height: 1.2;
+}
+
+h1 {
+	margin-top: 0;
+	font-size: 3.157em;
+}
+
+h2 {
+	font-size: 2.369em;
+}
+
+h3 {
+	font-size: 1.777em;
+}
+
+h4 {
+	font-size: 1.333em;
+}
+
+small, .font_small {
+	font-size: 0.75em;
+}
+
+.container {
+	position: relative;
+	width: 50%;
+}
+
+.image {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+.reportButtons {
+	margin: 10px;
+	background-color: #EFEFEF;
+	border: none;
+	padding: 6px;
+}
+
+.borderClass {
+	border: 3px solid black;
+}
+</style>
+</head>
+
+<body style="background-color: #000000">
+
+	<div
+		class="promo-block"
+		align="center"
+		style="width: 23%; height: 70%; margin: 7% auto; background-color: white; background-position: left;">
+
+		<div
+			class="container"
+			align="center">
+			<h3 class="promo-block-title">Choose one (1/3)!</h3>
+			<div class="row">
+				<label>
+					<button class="reportButtons">
+						<img
+							src="/boateng.jpg"
+							style="width: 100px; height: 100px;" />
+					</button>
+				</label>
+				<h4 align="center">OR</h4>
+				<label>
+					<button class="reportButtons">
+						<img
+							src="/muller.jpg"
+							style="width: 100px; height: 100px;" />
+					</button>
+				</label>
+
+			</div>
+			<p>
+				<a
+					class="btn btn-danger"
+					th:href="@{/register/step2(twitterUserID=${twitterUserID})}">Next</a>
+			</p>
+		</div>
+	</div>
+
+	<script>
+		function clickOnce(element) {
+			console.log(element);
+			if (element.hasClass('borderClass')) {
+				element.removeClass('borderClass');
+			} else {
+				element.addClass('borderClass').siblings().removeClass(
+						'borderClass');
+			}
+		}
+
+		$('.reportButtons').click(function() {
+			clickOnce($(this))
+
+		});
+		$('.reportButtons2').click(function() {
+			clickOnce($(this))
+
+		});
+		$('.reportButtons3').click(function() {
+			clickOnce($(this))
+
+		});
+	</script>
+	<script src="js/bootstrap.min.js"></script>
+
+</body>
+</html>

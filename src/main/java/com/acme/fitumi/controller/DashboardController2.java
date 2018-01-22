@@ -37,7 +37,7 @@ public class DashboardController2 {
 
 		model.addAttribute("user", user);
 
-		return "dashboard";
+		return "Rewards";
 	}
 
 }

@@ -6,7 +6,7 @@ public class UserProfile {
 	private long twitterUserID;
 	private long lastPostedTweetId;
 	private int totalRating;
-	private List<TweetRating> tweetRatings;
+	private List<TweetRating> allTweetsRating;
 
 	public UserProfile() {
 		super();
@@ -24,7 +24,7 @@ public class UserProfile {
 		this.twitterUserID = twitterUserID;
 		this.lastPostedTweetId = lastPostedTweetId;
 		this.totalRating = totalRating;
-		this.tweetRatings = tweetRatings;
+		this.allTweetsRating = tweetRatings;
 	}
 
 	public long getTwitterUserID() {
@@ -51,12 +51,12 @@ public class UserProfile {
 		this.totalRating = totalRating;
 	}
 
-	public List<TweetRating> getTweetRatings() {
-		return tweetRatings;
+	public List<TweetRating> getAllTweetsRating() {
+		return allTweetsRating;
 	}
 
-	public void setTweetRatings(List<TweetRating> ratings) {
-		this.tweetRatings = ratings;
+	public void setAllTweetsRating(List<TweetRating> ratings) {
+		this.allTweetsRating = ratings;
 	}
 
 }

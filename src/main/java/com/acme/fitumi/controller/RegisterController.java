@@ -17,7 +17,7 @@ import com.acme.fitumi.repository.UserRepository;
 
 @Controller
 @Scope("session")
-@RequestMapping("/register")
+@RequestMapping(path = "/register")
 public class RegisterController {
 
 	private Twitter twitter;
@@ -72,7 +72,32 @@ public class RegisterController {
 
 		model.addAttribute("user", user);
 		model.addAttribute("registeredUsers", count);
-		return "registered";
+		model.addAttribute("twitterUserID", user.getTwitterUserID());
+		return "ImageOptions";
+	}
+
+	@RequestMapping(path = "step1")
+	public String step1(Model model, @RequestParam("twitterUserID") Long twitterUserId) {
+		model.addAttribute("twitterUserID", twitterUserId);
+		return "ImageOptions";
+	}
+
+	@RequestMapping(path = "step2")
+	public String step2(Model model, @RequestParam("twitterUserID") Long twitterUserId) {
+		model.addAttribute("twitterUserID", twitterUserId);
+		return "SecondQuestion";
+	}
+
+	@RequestMapping(path = "step3")
+	public String step3(Model model, @RequestParam("twitterUserID") Long twitterUserId) {
+		model.addAttribute("twitterUserID", twitterUserId);
+		return "ThirdQuestion";
+	}
+
+	@RequestMapping(path = "finish")
+	public String finish(Model model, @RequestParam("twitterUserID") Long twitterUserId) {
+		model.addAttribute("twitterUserID", twitterUserId);
+		return "redirect:/dashboard?twitterUserID=" + twitterUserId;
 	}
 
 }

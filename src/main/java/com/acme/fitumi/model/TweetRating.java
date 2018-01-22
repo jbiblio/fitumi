@@ -4,25 +4,12 @@ import org.springframework.data.annotation.Id;
 
 public class TweetRating {
 	private String id;
-
-	private int rating;
-
-	private String ratingMessage;
-
-	private String text;
-
-	private long tweetID;
+	private String notification;
+	private String tweet;
+	private double value;
 
 	public TweetRating() {
 		super();
-	}
-
-	public TweetRating(long tweetID, String text, int rating, String ratingMessage) {
-		super();
-		this.rating = rating;
-		this.ratingMessage = ratingMessage;
-		this.text = text;
-		this.tweetID = tweetID;
 	}
 
 	@Id
@@ -30,40 +17,32 @@ public class TweetRating {
 		return id;
 	}
 
-	public long getRating() {
-		return rating;
+	public String getNotification() {
+		return notification;
 	}
 
-	public String getRatingMessage() {
-		return ratingMessage;
+	public String getTweet() {
+		return tweet;
 	}
 
-	public String getText() {
-		return text;
-	}
-
-	public long getTweetID() {
-		return tweetID;
+	public double getValue() {
+		return value;
 	}
 
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public void setRating(int rating) {
-		this.rating = rating;
+	public void setNotification(String notification) {
+		this.notification = notification;
 	}
 
-	public void setRatingMessage(String ratingMessage) {
-		this.ratingMessage = ratingMessage;
+	public void setTweet(String tweet) {
+		this.tweet = tweet;
 	}
 
-	public void setText(String text) {
-		this.text = text;
-	}
-
-	public void setTweetID(long tweetID) {
-		this.tweetID = tweetID;
+	public void setValue(double value) {
+		this.value = value;
 	}
 
 }
